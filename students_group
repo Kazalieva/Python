@@ -1,0 +1,83 @@
+class Students:
+    def __init__ (self, name, family, ID_number, grade):
+        self.name = name
+        self.family = family
+        self.ID_number=ID_number
+        self.grade = grade
+
+class Group:
+    def __init__(self, student_list: list):
+        self.student_list: list = student_list
+
+    def present(self):
+        for k in self.student_list:
+            print(str.format("{} {} -> ID: {}, grade: {}", k.name, k.family, k.ID_number, k.grade))
+            print()
+
+    def add_new (self,newStudent):
+        for j in self.student_list:
+            if j.ID_number == newStudent.ID_number:
+                print("This student is in the group!")
+                return
+        else:
+            self.student_list.append(newStudent)
+
+    def remove(self):
+        for i in self.student_list:
+            if i.grade <= 3:
+                self.student_list.remove(i)
+
+    def avg_grade(self):
+        grades = [st.grade for st in self.student_list]
+        return round(sum(grades) / len(self.student_list), 2)
+
+    def max_grade(self):
+        grades = [st.grade for st in self.student_list]
+        return max(grades)
+
+    def min_grade(self):
+        grades = [st.grade for st in self.student_list]
+        return min(grades)
+
+    def same_grades(self,grade):
+        new_set = set()
+        for l in range(len(self.student_list)):
+            if self.student_list[l].grade ==grade:
+                new_set.add(self.student_list[l])
+        return new_set
+
+    def move(self):
+        excellent_st=list()
+        for i in self.student_list:
+            if i.grade >= 5.50:
+                self.student_list.remove(i)
+                excellent_st.append(i)
+        return excellent_st
+
+    my_file = open("students", "r")
+    for student in my_file:
+        print(student)
+    my_file.close()
+
+MyGroup = Group([Students("Desislava","Ivanova", 12121, 5.10),
+               Students("Ivan", "Petrov", 12122, 4.50),
+               Students("Mario", "Ivanov", 1233, 5.50),
+               Students("Ivet", "Nikolova", 1288, 2.50)])
+
+MyGroup.add_new(Students("Aysel","Kazalieva", 12144, 5.60))
+print(MyGroup.avg_grade())
+print(MyGroup.max_grade())
+print(MyGroup.min_grade())
+
+gr_student_list = MyGroup.same_grades(5.60)
+MyGroup.remove()
+MyGroup.present()
+
+excellent_st = MyGroup.move()
+MyGroup.present()
+
+
+
+
+
+
