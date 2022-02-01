@@ -1,0 +1,49 @@
+def multiple(a, b):
+    return a * b
+
+
+def divide_normal(a, b):
+    return a / b
+
+
+def divide_residue(a, b):
+    return a % b
+
+
+def divide_int(a, b):
+    return a // b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def add(a, b):
+    return a + b
+
+
+def calculating(operator, num1, num2):
+    result = "Try again"
+    if operator == "*":
+        result = multiple(num1, num2)
+    elif operator == "/":
+        result = divide_normal(num1, num2)
+    elif operator == "//":
+        result = divide_int(num1, num2)
+    elif operator == "%":
+        result = divide_residue(num1, num2)
+    elif operator == "subtract":
+        result = subtract(num1, num2)
+    elif operator == "add":
+        result = add(num1, num2)
+
+    return result
+
+
+enter_operator = input("Operation is:")
+number1 = float(input("Enter a first number"))
+number2 = float(input("Enter a second number"))
+final_result = calculating(enter_operator, number1, number2)
+print(final_result)
+
+
