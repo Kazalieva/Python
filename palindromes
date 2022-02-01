@@ -1,0 +1,16 @@
+all_words = input("Enter the words: ").split()
+palindromes = []
+count = 0
+for word in all_words:
+    if word == word[::-1]:
+        palindromes.append(word)
+        count += 1
+print(palindromes)
+print(f"The palindromes are {count}.")
+
+
+#with list comprehension
+words = input().split()
+palindromes = [word for word in words if word==word[::-1]]
+print(palindromes)
+
