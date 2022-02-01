@@ -1,0 +1,64 @@
+class Student:
+    def __init__(self, f_num, name, last_name, grade):
+        self.f_num = f_num
+        self.name = name
+        self.f_name = last_name
+        self.grade = grade
+
+
+class Group(Student):
+    def __init__(self, st_list: list):
+        self.st_list: list = st_list
+
+    def present(self):
+        for st in self.st_list:
+            print(str.format("{} {} -> f_num: {}, grade: {}", st.name, st.f_name, st.f_num, st.grade))
+        print()
+
+    def add_new(self, new_st: Student):
+        for st in self.st_list:
+            if st.f_num == new_st.f_num:
+                print('This student is in the group!')
+                return
+        else:
+            self.st_list.append(new_st)
+            print("Welcome " + st.name + "!")
+
+    def remove(self):
+        for i in self.st_list:
+            if i.grade < 3:
+                self.st_list.remove(i)
+
+    def avg_grade(self):
+        grades = [st.grade for st in self.st_list]
+        return round(sum(grades) / len(self.st_list), 2)
+
+    def get_odd_even(self):
+        odd_fnumber = []
+        even_fnumber = []
+        for st in self.st_list:
+            if st.f_num % 2 == 0:
+                even_fnumber.append(st.f_num)
+            elif st.f_num % 2 != 0:
+                odd_fnumber.append(st.f_num)
+        print(f"The odd FNumbers are: {odd_fnumber}")
+        print(f"The even FNumbers are: {even_fnumber}")
+
+    def name_with_a(self):
+        list_a = []
+        for n in self.st_list:
+            if n.name[0] == "A":
+                list_a.append((n.name) + n.f_name)
+        print(f"Students with 'A': {list_a} ")
+
+
+My_Group = Group([Student(1246, 'Aleks', 'Ivanov', 5.60), Student(21144, 'Aleksa', 'Georgieva', 4.60),
+                  Student(21145, 'Mario', 'Ivanov', 3.60), Student(70252, 'Martina', 'Nikolova', 5.00)])
+
+My_Group.add_new(Student(212121, 'Gergana', 'Petrova', 5.00))
+print(f"The average mark is: {My_Group.avg_grade()}")
+
+My_Group.remove()
+My_Group.present()
+My_Group.get_odd_even()
+My_Group.name_with_a()
