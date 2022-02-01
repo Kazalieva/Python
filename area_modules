@@ -1,0 +1,29 @@
+from Triangle import Triangle
+from Square import Square
+from Rectangle import Rectangle
+from Trapeze import Trapeze
+from rhombus import rhoumbus
+
+print(Triangle(int(input("a=")), int(input("h="))))
+print(Square(int(input("a="))))
+print(Rectangle(int(input("a=")), int(input("b="))))
+print(Trapeze(int(input("a=")), int(input("b=")), int(input("h="))))
+print(rhoumbus(int(input("a=")), int(input("h="))))
+
+
+def Rectangle(a,b):
+    print(a*b)
+    
+def rhoumbus(a,h):
+    print(a*h)
+    
+def Square (a):
+    print(a*a)
+ 
+def Trapeze(a,b,h):
+    print(((a+b)*h)/2)   
+    
+def Triangle(a,h):
+    print ((a*h)/2)
+
+  
