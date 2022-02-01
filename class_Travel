@@ -1,0 +1,31 @@
+# Да се състави програма на Python, която дефинира клас Travel
+# с полета: ID, Destination, Flight, Price.
+# Да се добави метод „Reduce“, чрез който всички стойности от
+# полето Price по-големи от 200 да бъдат заменени със стойност
+# по-ниска с 10%. Да се добави и методът Print,
+# чрез който да се отпечатят ID, Destination, Flight, Price.
+
+class Travel:
+    def __init__(self, id, destination, flight, price):
+        self.id = id
+        self.destination = destination
+        self.flight = flight
+        self.price = price
+
+    def reduce(self):
+        if self.price > 200:
+            self.price = self.price * 0.90
+
+    def print(self):
+        print(f"ID is {self.id}\ndestination is {self.destination} "
+              f"\nflight is {self.flight} \nprice is {self.price}")
+
+
+trip_list = [Travel(123, "Tokio", 12, 202), Travel(11, "Bulgaria", 23, 100)]
+for tr in trip_list:
+    tr.reduce()
+
+for tr in trip_list:
+    tr.print()
+
+
