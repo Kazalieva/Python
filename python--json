@@ -1,0 +1,5 @@
+import json
+text = ["Bulgaria - Sofia",
+        "Greece - Athens"]
+with open("json_file.json", "w") as file:
+        json.dump(text,file,indent=4)
