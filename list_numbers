@@ -1,0 +1,20 @@
+even_numbers = []
+odd_numbers = []
+count_numbers = int(input("All numbers are: "))
+count_even_numbers = 0
+for number in range(count_numbers):
+    number = int(input("Enter a number: "))
+    if number % 2 == 0:
+        even_numbers.append(number)
+        count_even_numbers += 1
+    elif number % 3 == 0 and number % 2 != 0:
+        odd_numbers.append(number)
+
+print(f"The list of even numbers: {even_numbers}")
+print(f"The list ot odd numbers: {odd_numbers}")
+print(f"The max number is: {max(odd_numbers)}")
+print(f"The min number is: {min(odd_numbers)}")
+print(f"The sum of even numbers is: {sum(even_numbers)}")
+print(f"The average is: {sum(even_numbers) / count_even_numbers}")
+
+
