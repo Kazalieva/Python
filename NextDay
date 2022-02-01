@@ -1,0 +1,38 @@
+# Напишете програма на Python, за да получите следващия ден от дадена дата
+# (въведенаот потребителя).
+year = int(input("Input a year:"))
+month = int(input("Input a month[1-12]:"))
+day = int(input("Input a day[1-31]:"))
+
+if ((month == 4) \
+    or (month == 6) \
+    or (month == 9) \
+    or (month == 11)) \
+        and (day == 30):
+    print(f"The next date is [yyyy-mm-dd]: {year}-{month + 1}-01 ")
+
+elif month == 2 and day == 29:
+    print(f"The next date is [yyyy-mm-dd]: {year}-{month + 1}-01")
+elif ((month == 1) \
+      or (month == 3) \
+      or (month == 4) \
+      or (month == 5) \
+      or (month == 7) \
+      or (month == 8) \
+      or (month == 10)) \
+        and (day == 31):
+    print(f"The next date is [yyyy-mm-dd]: {year}-{month + 1}-01 ")
+elif month == 12 and day == 31:
+    print(f"The next date is [yyyy-mm-dd]:{year + 1}-1-01 ")
+else:
+    print(f"The next date is [yyyy-mm-dd]:{year}-{month}-{day + 1} ")
+
+
+# import datetime
+# year = input("Input a year: ")
+# month = input("Input a month [1-12]: ")
+# day = input("Input a day [1-31]: ")
+# today = str.format("{0} {1} {2}", year, month, day)
+#
+# next_day = datetime.datetime.strptime(today, '%Y %m %d') + datetime.timedelta(days=1)
+# print("The next date is [yyyy-mm-dd] " + str(next_day.date()) + ".")
