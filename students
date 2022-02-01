@@ -1,0 +1,40 @@
+class Student:
+    def __init__(self,name,last_name):
+        self.name=name
+        self.last_name=last_name
+
+    def set_class(self,student_class):
+        self.student_class=student_class
+
+    def set_university(self,student_university):
+        self.student_university=student_university
+
+    def set_yearOfStudy(self,student_yearOfStudy):
+        self.student_yearOfStudy=student_yearOfStudy
+
+    def print(self):
+        print(self.name,self.last_name,self.student_class,
+              self.student_university,self.student_yearOfStudy)
+
+class Lecturer(Student):
+    def __init__(self,name, family, university, experience):
+        super().__init__(name,family)
+        self.university = university
+        self.experience= experience
+
+    def print(self):
+        print(self.name,self.last_name,self.university,self.experience)
+
+
+
+MyStudent=Student(121221, "Aysel")
+MyStudent.set_class(f"43-group")
+MyStudent.set_university("TU-Sofia")
+MyStudent.set_yearOfStudy(2021)
+
+print(MyStudent.name,MyStudent.last_name,MyStudent.student_class,
+      MyStudent.student_university,MyStudent.student_yearOfStudy,)
+MyLecturer=Lecturer("Ivet","Georgieva","UNSS", 4)
+
+print(MyLecturer.name,MyLecturer.last_name,MyLecturer.university,MyLecturer.experience)
+
