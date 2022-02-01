@@ -1,0 +1,22 @@
+from Sum import Sum
+from Sub import Sub
+from Mul import Mul
+from Div import Div
+
+print(Sum(int(input("A: ")), int(input("B: "))))
+print(Sub(int(input("A: ")), int(input("B: "))))
+print(Mul(int(input("A: ")), int(input("B: "))))
+print(Div(int(input("A: ")), int(input("B: "))))
+
+def Div(a,b):
+    print(a/b)
+    
+def Div(a,b):
+    print(a/b)
+    
+def Sub(a,b):
+    print(a-b)
+    
+def Sum(a,b):
+    print(a+b)
+
