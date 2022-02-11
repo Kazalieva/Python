@@ -1,0 +1,67 @@
+options = [["A.681", "B.1112", "C.683", "D.651"],
+           ["A.Vidin", "B.Sofia", "C.Dospat", "D.Veliko Turnovo"],
+           ["A.Turkey", "B.Serbia", "C.Ukraine", "D.Romania"]]
+
+questions = {"When was created Bulgaria?:": "A",
+             "Which one is the capital of Bulgaria?:": "B",
+             "Which of these countries is not around Bulgaria?:": "C"}
+
+
+def new_game():
+    questions_number = 1
+    guesses = []
+    correct_answers = 0
+    for key in questions:
+        print("----------------------------------------")
+        print(key)
+        for i in options[questions_number - 1]:
+            print(i)
+        guess = input("Enter your answer:").upper()
+        guesses.append(guess)
+        print(guesses)
+
+        questions.get(key)
+        correct_answers += check_answer(questions.get(key), guess)
+        questions_number += 1
+
+    display_score(correct_answers, guesses)
+
+
+def check_answer(answers, guess):
+    if answers == guess:
+        print("Correct!")
+        return 1
+    else:
+        print("Try again")
+        return 0
+
+
+def display_score(correct_answers, guesses):
+    print("RESULTS")
+    print("-------------------")
+    print("Answers:", end=" ")
+    for i in questions:
+        print(questions.get(i), end=" ")
+
+    print("\nGuesses:", end=" ")
+    for i in guesses:
+        print(i, end=" ")
+    print("\n----------------------")
+    score = int((correct_answers / len(questions)) * 100)
+    print("Your SCORE is: " + str(score) + '%')
+
+
+def play_again():
+    response = input("Do you want to play again? (yes / no)")
+    response = response.upper()
+    if response == "NO":
+        return False
+    else:
+        return True
+
+
+new_game()
+
+while play_again():
+    new_game()
+print("Goodbye!")
